@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('article_id')->constrained()->onDelete('cascade');
             $table->string('author_name');
             $table->text('content');
-            $table->timestamp('created_at')->useCurrent();
+            $table->timestamps();
         });
     }
 
