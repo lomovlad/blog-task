@@ -19,3 +19,13 @@ export function addComment(articleId, data) {
         body: JSON.stringify(data)
     }).then(res => res.json());
 }
+
+export function addArticle(data) {
+    return fetch(`${BASE_URL}/articles`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    }).then(res => res.json());
+}
