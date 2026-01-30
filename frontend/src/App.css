@@ -28,6 +28,150 @@
   color: #61dafb;
 }
 
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f5f6fa;
+  color: #222;
+}
+
+/* Общий контейнер */
+.blog-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Заголовок страницы */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 30px 0;
+  color: #333;
+}
+
+/* Форма добавления статьи */
+.add-article-form {
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.add-article-form h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.add-article-form input,
+.add-article-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.add-article-form button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.add-article-form button:hover {
+  background-color: #218838;
+}
+
+/* Список статей */
+.articles-list > div {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.articles-list h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+}
+
+.articles-list h2 a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.articles-list h2 a:hover {
+  text-decoration: underline;
+}
+
+.articles-list p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Страница одной статьи */
+.article-page {
+  margin-top: 20px;
+}
+
+.article-page h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.article-page p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Комментарии */
+.comments {
+  margin-top: 30px;
+}
+
+.comment {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+
+.comment b {
+  color: #333;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comment-form button {
+  padding: 8px 16px;
+  background-color: #007BFF;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #0056b3;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

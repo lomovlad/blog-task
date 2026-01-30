@@ -5,6 +5,7 @@ import ArticlesList from "./components/ArticlesList";
 import ArticlePage from "./components/ArticlePage";
 import {useParams} from 'react-router-dom';
 import AddArticleForm from "./components/AddArticleForm";
+import "./App.css";
 
 function App() {
     const [articles, setArticles] = useState([]);
@@ -17,8 +18,8 @@ function App() {
 
     return (
         <Router>
-            <div>
-                <h1>Блог</h1>
+            <div className="blog-container">
+                <h1 className="page-title">Блог</h1>
                 <Routes>
                     {/* Страница со списком статей */}
                     <Route path='/' element={

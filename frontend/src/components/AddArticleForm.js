@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {addArticle} from "../api/api";
+import "../App.css";
 
 function AddArticleForm({onArticleAdded}) {
     const [title, setTitle] = useState("");
@@ -15,7 +16,7 @@ function AddArticleForm({onArticleAdded}) {
     }
 
     return (
-        <div>
+        <div className="add-article-form">
             <h2>Добавить статью</h2>
             <form onSubmit={handleSubmit}>
                 <input

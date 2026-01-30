@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {getArticle, addComment} from "../api/api";
+import "../App.css";
 
 function ArticlePage({articleId}) {
     const [article, setArticle] = useState(null);
@@ -27,39 +28,40 @@ function ArticlePage({articleId}) {
     if (!article) return <p>Загрузка...</p>;
 
     return (
-        <div>
+        <div className="article-page">
             <h1>{article.title}</h1>
             <p>{new Date(article.created_at).toLocaleDateString()}</p>
             <p>{article.content}</p>
 
-            <h3>Комментарии</h3>
-            {comments.map(c => (
-                <div key={c.id}>
-                    <p><b>{c.author_name}</b> ({new Date(c.created_at).toLocaleDateString()}):</p>
-                    <p>{c.content}</p>
-                    <hr/>
-                </div>
-            ))}
+            <div className="comments">
+                <h3>Комментарии</h3>
+                {comments.map(c => (
+                    <div key={c.id} className="comment">
+                        <p><b>{c.author_name}</b> ({new Date(c.created_at).toLocaleDateString()}):</p>
+                        <p>{c.content}</p>
+                    </div>
+                ))}
+            </div>
 
-            <h3>Добавить комментарий</h3>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Имя"
-                    value={author}
-                    onChange={e => setAuthor(e.target.value)}
-                    required
-                />
-                <br/>
-                <textarea
-                    placeholder="Комментарий"
-                    value={content}
-                    onChange={e => setContent(e.target.value)}
-                    required
-                />
-                <br/>
-                <button type="submit">Отправить</button>
-            </form>
+            <div className="comment-form">
+                <h3>Добавить комментарий</h3>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Имя"
+                        value={author}
+                        onChange={e => setAuthor(e.target.value)}
+                        required
+                    />
+                    <textarea
+                        placeholder="Комментарий"
+                        value={content}
+                        onChange={e => setContent(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
         </div>
     );
 }
