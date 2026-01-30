@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {getArticles} from "./api/api";
+import ArticlesList from "./components/ArticlesList";
 
 function App() {
     const [articles, setArticles] = useState([]);
@@ -14,13 +15,7 @@ function App() {
         <div>
             <h1>Статьи</h1>
 
-            {articles.map(article => (
-                <div key={article.id}>
-                    <h2>{article.title}</h2>
-                    <p>{article.content}</p>
-                    <hr/>
-                </div>
-            ))}
+            <ArticlesList articles={articles} />
         </div>
     );
 }
