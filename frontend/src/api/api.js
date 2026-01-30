@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8000/api';
+const BASE_URL = 'http://localhost:8080/api';
 
 export function getArticles() {
     return fetch(`${BASE_URL}/articles`)
