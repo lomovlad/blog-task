@@ -1,68 +1,33 @@
-## Blog App
+### Blog App
 
-### Описание
-**Blog App** — fullstack-проект на Laravel (backend) и React (frontend).  
+**Blog App** — тестовое задание для компании "Polis.online".  
 
-Педставляет собой простой блог, где можно:
-- Просматривать список статей
-- Просматривать отдельные статьи
-- Добавлять новые статьи
-- Читать и оставлять комментарии
+Задача: Разработка простого блога с комментариями.
 
+Функциональность: просмотр списка статей, просмотр отдельной статьи, добавление статей, чтение и добавление комментариев.
 
-
-  Backend реализован по принципам REST API, frontend взаимодействует с ним через fetch.
-
-  Реализованы базовые автотесты
+Backend реализован по принципам REST API.
+Покрытие ключевого функционала обеспечено автотестами.
 
 ---
-
-### Технологии и стек
-
-- **Backend:** Laravel 12, PHP 8.4, MySQL
-- **Frontend:** React, JavaScript
-- **Контейнеризация:** Docker, Docker Compose
-- **Прочее:** React Router для маршрутизации
-
----
-### Контейнеризация
-
-Проект полностью контейнеризирован с помощью Docker:
-
-- **Backend (Laravel/PHP-FPM)**
-    - Контейнер `backend` с PHP 8.4 и Composer
-    - Содержит исходный код Laravel и работает с MySQL
-    - Подключается к общей сети `blog-network` для взаимодействия с другими сервисами
-
-- **Frontend (React)**
-    - Контейнер `frontend` с Node.js 20
-    - Dev-сервер React (`npm start`) доступен на порту 3000
-    - Подключен к общей сети для доступа к backend API
-
-- **Database (MySQL 8)**
-    - Контейнер `db` хранит базу данных проекта
-    - Настройки пользователя и пароля указаны через переменные окружения
-    - Данные сохраняются в volume `db_data`, чтобы сохранять состояние при перезапуске контейнера
-
-- **Nginx (в продакшн или прокси)**
-    - Прокси для backend и frontend
-    - Контейнер `web` с Nginx настраивает маршрутизацию и доступ к Laravel
-
-Все контейнеры объединены в одну сеть `blog-network`, что позволяет backend, frontend и БД взаимодействовать друг с другом без проброса лишних портов наружу.
 
 ### Установка и запуск
 
 #### 1. Клонирование проекта
 
 ```bash
-git clone <URL вашего репозитория>
+git clone https://github.com/lomovlad/blog-task.git
 cd blog-task
 ```
-#### 2. Запустите Docker Compose для сборки и запуска контейнеров:
+#### 2. Скопируйте файл окружения для backend-приложения:
+```bash
+cp backend/.env.example backend/.env
+```
+#### 3. Запустите Docker Compose для сборки и запуска контейнеров:
 ```bash
 docker compose up --build
 ```
-#### 3. Проверьте настройки подключения к MySQL в .env:
+#### 4. Проверьте настройки подключения к MySQL в .env:
 ```ini
 DB_CONNECTION=mysql
 DB_HOST=db
@@ -75,8 +40,14 @@ DB_PASSWORD=secret
 ```bash
 docker compose exec backend bash
 ```
-#### 5. Выполните миграции и сидеры:
+#### 5. Установка зависимостей и подготовка backend:
+Перейдите в контейнер backend:
 ```bash
+docker compose exec backend bash
+```
+Сгенерируйте ключ приложения, выполните миграции и сидеры:
+```bash
+php artisan key:generate
 php artisan migrate
 php artisan db:seed
 ```
@@ -86,3 +57,10 @@ cd frontend
 npm install
 npm start
 ```
+---
+### Стек
+
+- **Backend:** Laravel 12, PHP 8.4, MySQL
+- **Frontend:** React, JavaScript
+- **Контейнеризация:** Docker, Docker Compose
+- **Прочее:** React Router для маршрутизации
